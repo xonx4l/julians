@@ -1,5 +1,5 @@
 use image::{ImageBuffer, Rgb};
-use nalgebra::{complex, Normed};
+use nalgebra::{Complex, Normed};
 
 
 fn julia (c: Complex<f64>, x: f64, y: f64) {
