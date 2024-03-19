@@ -2,6 +2,19 @@ use image::{ImageBuffer, Rgb};
 use nalgebra::{complex, Normed};
 
 
+fn julia (c: Complex<f64>, x: f64, y: f64) {
+    let mut z = Complex(x,y);
+
+    for i 0..255 {
+       if z.norm() > 2.0 {
+              return i as u8;
+       }
+
+       z = z * z + c;
+    }
+    255
+}
+
 fn main() {
        let width = 800;
        let height = 600;
@@ -12,6 +25,13 @@ fn main() {
        let mut img = ImageBuffer::new(width, height);
 
        for (x,y, pixel) in img.enumerate_pixels_mut() {
+
+              let  cx = y as f64 * scale_x -1.5;
+              let  cy = x as f64 * scale_y -1.5;
+
+               let c = Complex(-0.8, 0.156);
+               let value = julia( c, cx , cy);
+               
               *pixel = Rgb ([100, 100, 100]);
        }
 
