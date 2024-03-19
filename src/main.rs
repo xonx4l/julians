@@ -3,7 +3,7 @@ use nalgebra::{complex, Normed};
 
 
 fn julia (c: Complex<f64>, x: f64, y: f64) {
-    let mut z = Complex(x,y);
+    let mut z = Complex::new(x,y);
 
     for i 0..255 {
        if z.norm() > 2.0 {
